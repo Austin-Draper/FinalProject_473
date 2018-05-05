@@ -1,4 +1,4 @@
-// app/controllers/index.js
+// app/controllers/privateroom.js
 import Controller from '@ember/controller';
 import { match, not } from '@ember/object/computed';
 import { gte } from '@ember/object/computed';
@@ -12,11 +12,10 @@ export default Controller.extend({
   isLongEnough: gte("message.length", 5),
   isBothValid: and('isValid', 'isLongEnough'),
   isDisabled: not('isBothValid'),
-  reminderMessage: 'Please provide your email and leave a message here',
 
   actions: {
 
-    savePublicMessage() {
+    savePrivateMessage() {
       const senderEmail = this.get('emailAddress');
       const textMessage = this.get('message');
       const recipient = 'Everyone';

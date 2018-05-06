@@ -2,18 +2,18 @@
   <br/>
 
   <p>This is a Public Chat Room. Messages can be seen by everyone</p>
-  <p>Click on the sender email to have a private chat</p><br/>
+  <p>You are loggin in by {{session.currentUser.email}}</p>
 
-  <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
-      {{input type="email" value=emailAddress class="form-control" placeholder="Please enter your e-mail address." autofocus="autofocus"}}
-    </div>
+  <!-- <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
+    {{input type="email" value=emailAddress class="form-control" placeholder="Please enter your e-mail address." autofocus="autofocus"}}
+  </div> -->
 
   <div class="form-horizontal form-group form-group-lg row">
     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
       {{textarea class="form-control" placeholder="Enter your message here. At least 5 characters" rows="3" value=message}}
     </div>
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-        <button disabled={{isDisabled}} {{action 'savePublicMessage'}} class="btn btn-primary btn-lg btn-block">Send Message</button>
+      <button disabled= {{isDisabled}} {{action 'savePublicMessage'}} class="btn btn-primary btn-lg btn-block">Send Message</button>
     </div>
   </div>
 
@@ -27,16 +27,19 @@
       </tr>
     </thead>
     <tbody>
-    {{#each model as |public-message|}}
-      <tr>
-        <th>{{#link-to 'privateroom' public-message.id}}<a href="">{{public-message.sender}}</a>{{/link-to}}</th>
-        <td>{{public-message.sendingTime}}</td>
-        <td>{{public-message.message}}</td>
-        <!--<td><button class="btn btn-success btn-xs">Chat To</button></td>-->
-      </tr>
-    {{/each}}
+      {{#each model as |public-message|}}
+        <tr>
+          <th>
+            {{#link-to 'privateroom' public-message.id}}<a href="">{{public-message.sender}}</a>{{/link-to}}
+          </th>
+          <td>{{public-message.sendingTime}}</td>
+          <td>{{public-message.message}}</td>
+          <!--<td><button class="btn btn-success btn-xs">Chat To</button></td>-->
+        </tr>
+      {{/each}}
     </tbody>
   </table>
 
   <br/>
+    <p>Click on the sender email to have a private chat</p><br/>
 </div>

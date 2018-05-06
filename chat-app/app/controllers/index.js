@@ -1,23 +1,24 @@
 // app/controllers/index.js
 import Controller from '@ember/controller';
-import { match, not } from '@ember/object/computed';
+import {  inject } from '@ember/service';
+//import { match, not } from '@ember/object/computed';
+import { not } from '@ember/object/computed';
 import { gte } from '@ember/object/computed';
-import { and } from '@ember/object/computed';
+//import { and } from '@ember/object/computed';
 
 export default Controller.extend({
-
+  session: inject(),
   emailAddress: '',
 
-  isValid: match('emailAddress', /^.+@.+\..+$/),
+  // isValid: match('emailAddress', /^.+@.+\..+$/),
   isLongEnough: gte("message.length", 5),
-  isBothValid: and('isValid', 'isLongEnough'),
-  isDisabled: not('isBothValid'),
-  reminderMessage: 'Please provide your email and leave a message here',
+  // isBothValid: and('isValid', 'isLongEnough'),
+  isDisabled: not('isLongEnough'),
 
   actions: {
 
     savePublicMessage() {
-      const senderEmail = this.get('emailAddress');
+      const senderEmail = this.get('session.currentUser.email');
       const textMessage = this.get('message');
       const recipient = 'Everyone';
       const messageTime = Date();
@@ -27,7 +28,7 @@ export default Controller.extend({
 
       //alert(`Saving of the following email address and Message is in progress: ${this.get('emailAddress')} - ${this.get('message')}`);
       //this.set('responseMessage', `Thank you! We've just saved your email address: ${this.get('emailAddress')}: ${this.get('message')}`);
-      //this.set('message', '');
+      this.set('message', '');
     }
   }
 });

@@ -25,15 +25,20 @@
       </tr>
     </thead>
     <tbody>
-    <!-- {{#each model as |public-message|}} -->
+    {{#each model as |public-message|}}
       <tr>
         <td>{{model.sender}}</td>
         <td>{{model.recipient}}</td>
         <td>{{model.sendingTime}}</td>
         <td>{{model.message}}</td>
       </tr>
-    <!-- {{/each}} -->
+    {{/each}}
     </tbody>
   </table>
+  
+  <span>{{model.sender}} | </span>
+  <span>{{model.recipient}} | </span>
+  <span>{{model.sendingTime}} | </span>
+  <span>{{model.message}} | </span>
   <br/>
 </div>

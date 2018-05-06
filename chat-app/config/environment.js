@@ -16,6 +16,10 @@ module.exports = function(environment) {
       messagingSenderId: "158834159435"
     },
 
+    torii: {
+      sessionServiceName: 'session'
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

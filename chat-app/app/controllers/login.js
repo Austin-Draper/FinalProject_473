@@ -9,7 +9,7 @@ export default Controller.extend({
   userEmail: '',
 
   isValid: match('userEmail', /^.+@.+\..+$/),
-  isLongEnough: gte("userPassword.length", 5),
+  isLongEnough: gte("userPassword.length", 8),
   isBothValid: and('isValid', 'isLongEnough'),
   isDisabled: not('isBothValid'),
 

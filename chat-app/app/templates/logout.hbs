@@ -1,1 +1,8 @@
-{{outlet}}
+<div class="jumbotron text-center">
+
+  <div class="jumbotron text-center">
+    <p>You are logged in by the user {{session.currentUser.email}} Do you want to logout?</p>
+    <button {{action 'logOut'}} class="btn btn-primary login-button btn-block">Logout</button>
+  </div>
+
+</div>

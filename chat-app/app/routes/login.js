@@ -15,19 +15,20 @@ export default Route.extend({
         email: this.controller.get('userEmail'),
         password: this.controller.get('userPassword')
       }).then(function() {
+          this.set('userEmail', '');
+          this.set('userPassword', '');
           this.transitionTo('index');
         }.bind(this));
+
 
       //alert(`Saving of the following email address and Message is in progress: ${this.get('emailAddress')} - ${this.get('message')}`);
       //this.set('responseMessage', `Thank you! We've just saved your email address: ${this.get('emailAddress')}: ${this.get('message')}`);
       //this.set('message', '');
-
-  },
-
-  logOut() {
-    this.get('session').close();
+    },
+    logOut() {
+      this.get('session').close();
+    }
   }
-}
 });
 
 // export default Route.extend({

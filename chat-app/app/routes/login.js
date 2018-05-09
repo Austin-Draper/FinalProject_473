@@ -15,8 +15,8 @@ export default Route.extend({
         email: this.controller.get('userEmail'),
         password: this.controller.get('userPassword')
       }).then(function() {
-          this.set('userEmail', '');
-          this.set('userPassword', '');
+          this.controller.set('userEmail', '');
+          this.controller.set('userPassword', '');
           this.transitionTo('index');
         }.bind(this));
 

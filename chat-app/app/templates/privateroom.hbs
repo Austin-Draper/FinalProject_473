@@ -1,7 +1,7 @@
 <div class="jumbotron text-center">
   <br/>
 
-  <p>This is a Private Chat Room. Messages can only be seen by you and {{selectedSender}} </p>
+  <p>This is a Private Chat Room. Messages can only be seen by you and {{model.sender}} </p>
 
   <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
       {{input type="email" value=emailAddress class="form-control" placeholder="Please enter your e-mail address." autofocus="autofocus"}}
@@ -16,23 +16,23 @@
     </div>
   </div>
   <table class="table table-bordered table-striped">
-    <thead>
+    <!-- <thead>
       <tr>
         <th>Sender</th>
         <th>Recipient</th>
         <th>Date-Time</th>
         <th>Message</th>
       </tr>
-    </thead>
+    </thead> -->
     <tbody>
-    {{#each model as |public-message|}}
+    <!-- {{#each model}} -->
       <tr>
         <td>{{model.sender}}</td>
         <td>{{model.recipient}}</td>
         <td>{{model.sendingTime}}</td>
         <td>{{model.message}}</td>
       </tr>
-    {{/each}}
+    <!-- {{/each}} -->
     </tbody>
   </table>
 

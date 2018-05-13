@@ -15,6 +15,6 @@ export default Controller.extend({
   isPwMatch: computed(('userPassword', 'confirmedPassword'), function() {
     return this.get('userPassword') == this.get('confirmedPassword')
   }),
-  isDataOK: and('isEmailValid', 'isLongEnoughPw1', 'isLongEnoughPw2'),
-  isDisabled: not('isDataOK')
+  isDataOK: and('isEmailValid', 'isLongEnoughPw1', 'isLongEnoughPw2', 'isPwMatch'),
+  isDisabled: not('isDataOK'),
 });

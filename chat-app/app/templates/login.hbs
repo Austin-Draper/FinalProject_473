@@ -1,23 +1,19 @@
-<div class="jumbotron text-center">
+<div id="background_box" class="jumbotron text-center">
 
-  <div class="jumbotron text-center">
-    <h3>Login</h3>
+  <div id="center_box" class="jumbotron text-center">
+    <h3 id="header">Login</h3>
+    <img id="login_icon" src="/img/icon2.png" alt="login_icon" />
 
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
+    <div id="loginStuff">
       {{input type="email" value=userEmail class="form-control" placeholder="Enter your e-mail" autofocus="autofocus"}}
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
+    <div id="loginStuff">
+      {{input type="password" value=userPassword class="form-control" placeholder="Enter your password (at least 8)"}}
+    </div>
+    <br/>
+    <div id="loginStuff">
       <button disabled= {{isDisabled}} {{action 'logIn'}} class="btn btn-primary login-button btn-block">Login</button>
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
-      {{input type="password" value=userPassword class="form-control" placeholder="Enter your Password (at least 8)"}}
-    </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-      {{#link-to 'register' class="btn btn-primary login-button btn-block"}}Register{{/link-to}}
-    </div>
-    <!-- <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-      <button {{action 'logOut'}} class="btn btn-primary login-button btn-block">Logout</button>
-    </div> -->
+      {{#link-to 'register'}}<a href="">Sign Up</a>{{/link-to}}
   </div>
-      <p>{{session.currentUser.email}}</p>
 </div>

@@ -1,20 +1,21 @@
-<div class="jumbotron text-center">
+<div id="background_box" class="jumbotron text-center">
 
-  <div class="jumbotron text-center">
-    <h3>Register</h3>
+  <div id="center_box" class="jumbotron text-center">
+    <h3 id="header">Register</h3>
+    <img id="login_icon" src="/img/icon2.png" alt="login_icon" />
 
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
+    <div id="loginStuff">
       {{input type="email" value=userEmail class="form-control" placeholder="Enter your e-mail" autofocus="autofocus"}}
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
-      {{input type="password" value=userPassword class="form-control" placeholder="Enter Password (at least 8 characters)"}}
+    <div id="loginStuff">
+      {{input type="password" value=userPassword class="form-control" placeholder="Create a password (at least 8 characters)"}}
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
-      {{input type="password" value=confirmedPassword class="form-control" placeholder="Confirmed Password (at least 8 characters)"}}
+    <div id="loginStuff">
+      {{input type="password" value=confirmedPassword class="form-control" placeholder="Confirm password"}}
     </div>
-
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-      <button disabled= {{isDisabled}} {{action 'register'}} class="btn btn-primary login-button btn-block">OK</button>
+    <br/>
+    <div id="loginStuff">
+      <button disabled= {{isDisabled}} {{action 'register'}} class="btn btn-primary login-button btn-block">Create Account</button>
     </div>
   </div>
 </div>

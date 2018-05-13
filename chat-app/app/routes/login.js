@@ -5,6 +5,9 @@ import { inject } from '@ember/service';
 export default Route.extend({
   session: inject(),
   beforeModel: function() {
+      if (this.get('session.isAuthenticated')) {
+        this.transitionTo('index');
+      }
     return this.get('session').fetch().catch(function() {});
   },
 
@@ -25,6 +28,7 @@ export default Route.extend({
       //this.set('responseMessage', `Thank you! We've just saved your email address: ${this.get('emailAddress')}: ${this.get('message')}`);
       //this.set('message', '');
     },
+
     logOut() {
       this.get('session').close();
     }

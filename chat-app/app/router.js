@@ -11,6 +11,8 @@ Router.map(function() {
   this.route('privateroom', { path: '/:message_id/privateroom'});
   this.route('login');
   this.route('logout');
+  this.route('practice');
+  this.route('register');
 });
 
 export default Router;

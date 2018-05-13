@@ -1,8 +1,10 @@
-<div class="jumbotron text-center">
+<div id="background_box" class="jumbotron text-center">
 
-  <div class="jumbotron text-center">
-    <p>You are logged in by the user {{session.currentUser.email}} Do you want to logout?</p>
-    <button {{action 'logOut'}} class="btn btn-primary login-button btn-block">Logout</button>
+  <div id="center_box" class="jumbotron text-center">
+    <img id="logout_emoji" src="/img/sad-emoji.png" alt="login_icon" />
+      <h3 id="logout_warning">Are you sure you want to logout?</h3>
+      <div id="loginStuff">
+        <button {{action 'logOut'}} id="logout_button" class="btn btn-primary login-button btn-block">Logout</button>
+      </div>
   </div>
-
 </div>

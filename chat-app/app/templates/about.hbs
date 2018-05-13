@@ -1,3 +1,60 @@
 <div id="background_box" class="jumbotron text-center">
   <h1>About Page</h1>
+  <h4 class="header">Twaddle is a simple to use text application that allows users to communicate.
+  <br>It uses a model-view-controller pattern to store, update, and display messages.</h4><br>
+  <img src="https://i.imgur.com/UGQJUFo.jpg">
+  <br><br>
+  <h4 >1. User inputs message</h4>
+  <br><br>
+  <img src="https://i.imgur.com/Ozrvn7H.jpg">
+  <br><br>
+  <h4 class="about">2. Message is sent to controller (templates/index.bhs)</h4>
+  <p class="about">&lt;button disabled= &#123;&#123;isDisabled&#125;&#125; &#123;&#123;action 'savePublicMessage'&#125;&#125; class="btn btn-primary btn-lg btn-block"&gt;Send Message&lt;/button&gt;
+  </p>
+  <h4 class="about">3. Controller adds information about the message (controllers/index.js)</h4>
+  <p class="about">
+    const senderEmail = this.get('session.currentUser.email');<br>
+    const textMessage = this.get('message');<br>
+    const recipient = 'Everyone';<br>
+    const messageTime = Date();<br>
+  </p>
+  <h4 class="about">4. Controller passes message to model (controllers/index.js)</h4>
+  <p class="about">
+    const newPublicMessage = this.store.createRecord('public-message', {<br>
+    <span style="margin-left:2em">sender: senderEmail, </span><br>
+    <span style="margin-left:2em">message: textMessage, </span><br>
+    <span style="margin-left:2em">recipient: recipient, </span><br>
+    <span style="margin-left:2em">sendingTime: messageTime </span><br>
+    <span>});</span><br>
+    newPublicMessage.save(); <br>
+    this.set('message', ''); <br>
+  </p>
+  <h4 class="about">5. Model prepares messages for view (modes/public-message.js)</h4>
+  <p class="about">
+    export default DS.Model.extend({ <br>
+      <span style="margin-left:2em">sender: DS.attr('string'),</span><br>
+      <span style="margin-left:2em">message: DS.attr('string'),</span><br>
+      <span style="margin-left:2em">recipient: DS.attr('string'),</span><br>
+      <span style="margin-left:2em">sendingTime: DS.attr('string')</span><br>
+    });
+  </p>
+  <h4 class="about">6. View displays messages to user (templates/index.hbs)</h4>
+  <p class="about">
+    &#123;&#123;#each model as |public-message|&#125;&#125; <br>
+      <span style="margin-left:2em">&lt;div class="message_container"&gt; </span><br>
+        <span style="margin-left:4em">&lt;li&gt; </span><br>
+          <span style="margin-left:4em">&#123;&#123;#link-to 'privateroom' </span>
+          <span style="margin-left:"> public-message.id&#125;&#125;&lt;</span>
+          <span style="margin-left">a class=&quot;username&quot; </span>
+          <span style="margin-left">href=&quot;&quot;&gt;&#123;&#123;public-message.sender</span>
+          <span style="margin-left">&#125;&#125;&lt;/a&gt;</span>
+            <span style="margin-left:6em">&#123;&#123;/link-to&#125;&#125;</span><br>
+          <span style="margin-left:4em"> &lt;span class=&quot;time-right</span>
+          <span style="margin-left">&quot;&gt;&#123;&#123;public-message.sendingTime&#125;&#125;</span>
+          <span style="margin-left">&lt;/span&gt;&lt;/li&gt;</span><br>
+        <span style="margin-left:4em">&lt;p class=&quot;message&quot;&gt;</span>
+        <span style="margin-left">&#123;&#123;public-message.message&#125;&#125;&lt;/p&gt;</span><br>
+        <span style="margin-left:2em">&lt;/div&gt;</span><br>
+      <span>&#123;&#123;/each&#125;&#125;</span><br>
+  </p>
 </div>

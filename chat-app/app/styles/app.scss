@@ -29,6 +29,9 @@ div #loginStuff{
   padding: 5px;
   max-width: 300px;
 }
+
+h4.about{text-align: left;}
+
 #login_icon{
   width: 100px;
   height: 100px;
@@ -72,7 +75,7 @@ h3 #logout_warning{
 nav a{
   font-size: 17px;
 }
-
+p.about{text-align: left; color: white;}
 p.warning{
   color: white;
   text-align: center;

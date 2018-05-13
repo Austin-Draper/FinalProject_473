@@ -6,11 +6,6 @@ export default Route.extend({
   firebaseApp: inject(),
   session: inject(),
 
-  // setupController(controller) {
-  //   controller.set('userEmail', '');
-  //   controller.set('userPassword', '');
-  //   controller.set('confirmedPassword', '');
-  // },
   actions: {
     register() {
       const auth = this.get('firebaseApp').auth();
@@ -25,14 +20,12 @@ export default Route.extend({
         this.controller.set('userPassword', '');
         this.controller.set('confirmedPassword', '');
         // this.transitionTo('index');
-
       }, (error) => {
         if (error) {
           this.controller.set('responseError', error);
           this.controller.set('responseMessage', '');
         }
       });
-
     }
   }
 });

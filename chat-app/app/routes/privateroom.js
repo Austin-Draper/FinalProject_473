@@ -5,7 +5,7 @@ import {hash} from 'rsvp';
 export default Route.extend({
   model(params) {
      return hash({
-       chat: this.store.findRecord('public-message', params.message_id),
+       chat: this.store.findRecord('public-message', params.message_id, params.sender),
        allMessages: this.store.query('private-message', {
          orderBy: 'recipient',
          '.indexOn': 'recipient',

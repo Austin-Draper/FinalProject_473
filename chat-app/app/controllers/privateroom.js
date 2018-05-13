@@ -13,11 +13,12 @@ export default Controller.extend({
 
     savePrivateMessage() {
       const senderEmail = this.get('session.currentUser.email');
+      const receiver = this.get('chat.sender');
       const textMessage = this.get('message');
       const recipient = this.get('chat.id'); //this lets us save to the database using the message_id sent through the browser
       const messageTime = Date();
 
-      const newPrivateMessage = this.store.createRecord('private-message', {sender: senderEmail, message: textMessage, recipient: recipient, sendingTime: messageTime});
+      const newPrivateMessage = this.store.createRecord('private-message', {sender: senderEmail, receiver: receiver, message: textMessage, recipient: recipient, sendingTime: messageTime});
       newPrivateMessage.save();
 
       //alert(`Saving of the following email address and Message is in progress: ${this.get('emailAddress')} - ${this.get('message')}`);

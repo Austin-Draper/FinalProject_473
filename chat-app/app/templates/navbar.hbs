@@ -7,13 +7,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{#link-to 'login' class="navbar-brand"}}Twaddle{{/link-to}}
+      {{#link-to 'messages' class="navbar-brand"}}Twaddle{{/link-to}}
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav">
             {{#link-to 'login' tagName="li"}}<a href="">Login</a>{{/link-to}}
             {{#link-to 'index' tagName="li"}}<a href="">Public Room</a>{{/link-to}}
+            {{#link-to 'messages' tagName="li"}}<a href="">My Messages</a>{{/link-to}}
             {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
             {{#link-to 'logout' tagName="li"}}<a href="">Logout</a>{{/link-to}}
       </ul>

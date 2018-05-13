@@ -1,0 +1,12 @@
+<div class="chatbox_jumbotron">
+  <br/>
+
+  <p class="warning">My Messages</p>
+  <br/>
+  {{#each model as |private-message|}}
+    <div class="message_container">
+        {{#link-to 'privateroom' private-message.recipient}}<a class="username" href="">{{private-message.receiver}}</a>{{/link-to}}
+    </div>
+  {{/each}}
+  <br/>
+</div>

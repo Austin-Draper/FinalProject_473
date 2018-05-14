@@ -17,13 +17,18 @@ export default Route.extend({
          //private to just the person logged in and the intended recipient
          //This was tester code, and it works
          equalTo: params.message_id
-       })
-     });
-   },
+       }),
+   specific: this.store.query('private-message',{
+             limitToFirst: 1,
+             filter: {recipient: params.message_id, receiver: params.sender}
+           })
+        });
+      },
 
-   setupController(controller, model) {
-     this._super(...arguments);
-     set(controller, 'chat', model.chat);
-     set(controller, 'allMessages', model.allMessages);
-   }
+      setupController(controller, model) {
+        this._super(...arguments);
+        set(controller, 'chat', model.chat);
+        set(controller, 'allMessages', model.allMessages);
+        set(controller, 'specific', model.specific);
+      }
  });

@@ -3,6 +3,13 @@ import {set} from '@ember/object';
 import {hash} from 'rsvp';
 
 export default Route.extend({
+  beforeModel: function() {
+    if (!this.get('session.isAuthenticated')) {
+      alert('You have to login before access this page');
+      this.transitionTo('login');
+    }
+  },
+
   model(params) {
      return hash({
        chat: this.store.findRecord('public-message', params.message_id, params.sender),

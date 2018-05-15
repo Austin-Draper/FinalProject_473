@@ -1,7 +1,5 @@
 # chat-app
-
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+The app "Twaddle" gives you a convenient chat-room like appearance where you can communicate with other members, either publically or privately. If you haven't created an account, then sign up for one. Then you can log in and send messages to anyone in the app. Make sure to download the following packages bellow, then run "npm install" in the chat-app directory. Following that, run "ember serve" to run the program. From there, go onto "https://localhost:4200" to start the program.
 
 ## Prerequisites
 
